@@ -12,10 +12,7 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    const verified = jwt.verify(
-      token,
-      "f1b6b2c67c8c376eaa695ae4d04cba0758ff5306417d52a883293251e17ddbc2"
-    );
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
     req.user = verified;
     next();
   } catch (error) {

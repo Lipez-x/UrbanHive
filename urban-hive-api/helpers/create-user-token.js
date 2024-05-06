@@ -6,7 +6,7 @@ const createUserToken = async (user, req, res) => {
       name: user.name,
       id: user._id,
     },
-    "f1b6b2c67c8c376eaa695ae4d04cba0758ff5306417d52a883293251e17ddbc2"
+    process.env.JWT_SECRET
   );
 
   res.status(200).json({
