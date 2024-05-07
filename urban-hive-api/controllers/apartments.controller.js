@@ -60,7 +60,7 @@ module.exports = class ApartmentController {
       const newApartment = await apartment.save();
       res
         .status(201)
-        .json({ msg: "Apartamento cadastrado com sucesso", newApartment });
+        .json({ msg: "Apartamento cadastrado com successo", newApartment });
     } catch (error) {
       res.status(500).json({ error });
     }
@@ -136,7 +136,7 @@ module.exports = class ApartmentController {
     }
 
     await Apartment.findByIdAndDelete(id);
-    res.status(200).json({ msg: "Apartamento deletado com sucesso" });
+    res.status(200).json({ msg: "Apartamento deletado com successo" });
   }
 
   static async updateApartment(req, res) {
@@ -206,7 +206,7 @@ module.exports = class ApartmentController {
     }
 
     await Apartment.findByIdAndUpdate(id, updatedData);
-    res.status(200).json({ msg: "Apartamento atualizado com sucesso" });
+    res.status(200).json({ msg: "Apartamento atualizado com successo" });
   }
 
   static async schedule(req, res) {
@@ -251,7 +251,7 @@ module.exports = class ApartmentController {
     await Apartment.findByIdAndUpdate(id, apartment);
 
     res.status(200).json({
-      msg: `A visita foi agendada com sucesso, entre em contato com ${apartment.user.name} por este telefone: ${apartment.user.phone}`,
+      msg: `A visita foi agendada com successo, entre em contato com ${apartment.user.name} por este telefone: ${apartment.user.phone}`,
     });
   }
 

@@ -34,7 +34,7 @@ module.exports = class UserController {
 
     const userExists = await User.findOne({ email: email });
 
-    if (user.email !== userExists && userExists) {
+    if (user.email !== email && userExists) {
       res.status(422).json({ msg: "Já existe um usuário com este email" });
       return;
     }
@@ -63,7 +63,7 @@ module.exports = class UserController {
     try {
       await User.findOneAndUpdate({ _id: id }, { $set: user }, { new: true });
 
-      res.status(200).json({ msg: "Usuário atualizado com sucesso" });
+      res.status(200).json({ msg: "Usuário atualizado com successo" });
     } catch (error) {
       res.status(500).json({ error });
     }
