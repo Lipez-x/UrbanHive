@@ -31,3 +31,16 @@
     color: #318CE7;
     font-weight: bold;
 }
+
+.previer_apartment_images {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+.previer_apartment_images img{
+    width: 100px;
+    height: 100px;
+    margin-left: 1em;
+    object-fit: cover;
+}

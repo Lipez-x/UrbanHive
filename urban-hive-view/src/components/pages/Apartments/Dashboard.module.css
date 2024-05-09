@@ -1,0 +1,85 @@
+.apartmentlist_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.apartmentlist_header h1 {
+    margin: 0;
+}
+
+.apartmentlist_header a {
+    text-decoration: none;
+    background-color: #318CE7;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+    padding: .5em .8em;
+    border-radius: 5px;
+    border: 2px solid #318CE7;
+}
+
+.apartmentlist_header a:hover {
+    background-color: #205f9e;
+    border: 2px solid #205f9e;
+}
+
+.apartmentlist_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.apartmentlist_row {
+    border-bottom: 1px solid #318CE7;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.apartmentlist_row img{
+    margin-right: 1em;
+    object-fit: cover;
+}
+
+.apartmentlist_row span {
+    min-width: 100px;
+}
+
+.action {
+    margin-left: auto;
+}
+
+.action a, .action button {
+    text-decoration: none;
+    background-color: #FFF;
+    color: #318CE7;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+    padding: 7px 12px;
+    border-radius: 5px;
+    border: 2px solid #318CE7;
+    font-size: 12px;
+    margin-left: 1em;
+
+}
+
+.action a:hover, .action button:hover {
+    background-color: #318CE7;
+    color: #FFF;
+}
+
+.action .conclude_btn {
+    color: #25b456;
+    border-color: #25b456;
+}
+
+.action .conclude_btn:hover{
+    color: #ebebfb;
+    background-color: #25b456;
+}
+

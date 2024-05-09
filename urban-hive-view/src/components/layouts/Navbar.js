@@ -19,6 +19,9 @@ function Navbar() {
         {authenticaded ? (
           <>
             <li>
+              <Link to="/apartment/dashboard">Apartamentos</Link>
+            </li>
+            <li>
               <Link to="/user/profile">Perfil</Link>
             </li>
             <li onClick={logout}>Sair</li>
