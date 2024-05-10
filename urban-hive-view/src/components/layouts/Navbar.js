@@ -19,6 +19,9 @@ function Navbar() {
         {authenticaded ? (
           <>
             <li>
+              <Link to="/apartment/mylocations">Minhas locações</Link>
+            </li>
+            <li>
               <Link to="/apartment/dashboard">Apartamentos</Link>
             </li>
             <li>

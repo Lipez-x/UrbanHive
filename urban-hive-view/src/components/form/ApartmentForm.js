@@ -58,6 +58,7 @@ function ApartmentForm({ handleSubmit, apartmentData, btnText }) {
         name="price"
         placeholder="Digite o valor em R$"
         handleOnChange={handleChange}
+        value={apartment.price}
       />
       <Input
         text="Contato"
@@ -65,6 +66,7 @@ function ApartmentForm({ handleSubmit, apartmentData, btnText }) {
         name="contact"
         placeholder="Digite o contato para comunicação"
         handleOnChange={handleChange}
+        value={apartment.contact}
       />
       <Input
         text="Descrição"
@@ -72,6 +74,7 @@ function ApartmentForm({ handleSubmit, apartmentData, btnText }) {
         name="description"
         placeholder="Digite a descrição"
         handleOnChange={handleChange}
+        value={apartment.description}
       />
       <input type="submit" value={btnText}></input>
     </form>

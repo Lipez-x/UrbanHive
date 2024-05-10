@@ -87,7 +87,7 @@ module.exports = class ApartmentController {
     const token = getToken(req);
     const user = await getUserByToken(token);
 
-    const apartments = await Apartment.find({ "locator._id": user._id }).sort(
+    const apartments = await Apartment.find({ "lessee._id": user._id }).sort(
       "-createdAt"
     );
 
@@ -195,10 +195,7 @@ module.exports = class ApartmentController {
       updatedData.description = description;
     }
 
-    if (images.length === 0) {
-      res.status(422).json({ msg: "As imagens são obrigatórias." });
-      return;
-    } else {
+    if (images.length > 0) {
       updatedData.images = [];
       images.map((image) => {
         updatedData.images.push(image.filename);
@@ -242,13 +239,16 @@ module.exports = class ApartmentController {
         return;
       }
     }
-    apartment.lessee = {
-      _id: user._id,
-      name: user.name,
-      image: user.image,
+
+    const updatedData = {
+      lessee: {
+        _id: user._id,
+        name: user.name,
+        image: user.image,
+      },
     };
 
-    await Apartment.findByIdAndUpdate(id, apartment);
+    await Apartment.findByIdAndUpdate(id, updatedData);
 
     res.status(200).json({
       msg: `A visita foi agendada com successo, entre em contato com ${apartment.user.name} por este telefone: ${apartment.user.phone}`,

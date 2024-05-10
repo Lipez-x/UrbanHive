@@ -10,6 +10,9 @@ import { UserProvider } from "./context/UserContext";
 import Profile from "./components/pages/User/Profile";
 import Dashboard from "./components/pages/Apartments/Dashboard";
 import AddApartment from "./components/pages/Apartments/AddApartment";
+import EditApartment from "./components/pages/Apartments/EditApartment";
+import ApartamentDetails from "./components/pages/Apartments/ApartmentDetails";
+import MyLocations from "./components/pages/Apartments/MyLocations";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
             <Route path="/user/profile" element={<Profile />} />
             <Route path="/apartment/dashboard" element={<Dashboard />} />
             <Route path="/apartment/add" element={<AddApartment />} />
+            <Route path="/apartment/edit/:id" element={<EditApartment />} />
+            <Route path="/apartment/:id" element={<ApartamentDetails />} />
+            <Route path="/apartment/mylocations" element={<MyLocations />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </Container>
