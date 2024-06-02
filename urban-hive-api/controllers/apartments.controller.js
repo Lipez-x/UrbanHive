@@ -2,36 +2,51 @@ const getToken = require("../helpers/get-token");
 const getUserByToken = require("../helpers/get-user-by-token");
 const Apartment = require("../models/Apartment");
 const mongoose = require("mongoose");
+const { validate } = require("../models/User");
 
 module.exports = class ApartmentController {
+  static validateCreateApartment(
+    location,
+    price,
+    contact,
+    description,
+    images
+  ) {
+    if (!location) {
+      return new Error("A localização é obrigatória.");
+    }
+
+    if (!price) {
+      return new Error("O valor do imóvel é obrigatório.");
+    }
+
+    if (!contact) {
+      return new Error("O meio de contato é obrigatório.");
+    }
+
+    if (!description) {
+      return new Error("A descrição é obrigatória.");
+    }
+
+    if (!images || images.length === 0) {
+      return new Error("As imagens são obrigatórias.");
+    }
+  }
   static async create(req, res) {
     const { location, price, contact, description } = req.body;
     const images = req.files;
     const avaliable = true;
 
-    if (!location) {
-      res.status(422).json({ msg: "A localização é obrigatória." });
-      return;
-    }
+    const apartmentValidate = ApartmentController.validateCreateUser(
+      location,
+      price,
+      contact,
+      description,
+      images
+    );
 
-    if (!price) {
-      res.status(422).json({ msg: "O valor do imóvel é obrigatório." });
-      return;
-    }
-
-    if (!contact) {
-      res.status(422).json({ msg: "O meio de contato é obrigatório." });
-      return;
-    }
-
-    if (!description) {
-      res.status(422).json({ msg: "A descrição é obrigatória." });
-      return;
-    }
-
-    if (images.length === 0) {
-      res.status(422).json({ msg: "As imagens são obrigatórias." });
-      return;
+    if (apartmentValidate) {
+      return res.status(422).json({ msg: userValidate.message });
     }
 
     const token = getToken(req);
