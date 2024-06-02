@@ -32,6 +32,7 @@ module.exports = class ApartmentController {
       return new Error("As imagens são obrigatórias.");
     }
   }
+
   static async create(req, res) {
     const { location, price, contact, description } = req.body;
     const images = req.files;
@@ -46,7 +47,7 @@ module.exports = class ApartmentController {
     );
 
     if (apartmentValidate) {
-      return res.status(422).json({ msg: userValidate.message });
+      return res.status(422).json({ msg: apartmentValidate.message });
     }
 
     const token = getToken(req);
